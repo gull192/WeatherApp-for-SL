@@ -14,7 +14,8 @@
         android:text="@string/up_text"
         android:textColor="#000"
         android:textSize="30dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        />
 
     <EditText
 

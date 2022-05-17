@@ -118,6 +118,7 @@ class MainActivity : AppCompatActivity() {
                     lon?.let { it1 -> editor.putFloat("lon", it1.toFloat()) }
                     val cityUsr = it[0].localNames?.ru.toString()
                     editor.putString("cityName",cityUsr)
+
                     editor.apply()
 
                     city.text= cityUsr
