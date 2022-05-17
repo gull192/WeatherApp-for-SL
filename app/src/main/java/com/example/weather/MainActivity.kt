@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         val button = findViewById<Button>(R.id.button)
         val search = findViewById<EditText>(R.id.search)
         val weatherNow = findViewById<TextView>(R.id.city)
-
+        val reload = findViewById<Button>(R.id.reload)
 
         recyclerView = findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
@@ -61,6 +61,9 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        reload.setOnClickListener {
+            getWeatherFromCoord(lat, lon)
+        }
     }
 
      fun inicialCoord(){
@@ -113,10 +116,11 @@ class MainActivity : AppCompatActivity() {
                     lon = it[0].lon
                     lat?.let { it1 -> editor.putFloat("lat", it1.toFloat()) }
                     lon?.let { it1 -> editor.putFloat("lon", it1.toFloat()) }
-                    editor.putString("cityName",cityName)
+                    val cityUsr = it[0].localNames?.ru.toString()
+                    editor.putString("cityName",cityUsr)
                     editor.apply()
 
-                    city.text=cityName
+                    city.text= cityUsr
                     getWeatherFromCoord(lat, lon)
 
                 },
