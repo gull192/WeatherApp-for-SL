@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Weather</string>
+    <string name="up_text">Прогноз погоды</string>
+</resources>
